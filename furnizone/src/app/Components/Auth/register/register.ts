@@ -158,6 +158,10 @@ export class Register {
           console.log(res);
           const token=res.data.token;
           localStorage.setItem('token',token);
+          if(res.data.role==0){
+          localStorage.setItem('role','user');
+          this.auth.role.set('user');
+          }
           this.auth.isLogged.set(true);
           alert('تم تسجيل حسابك بنجاح')
           this.rout.navigate(['/home'])
